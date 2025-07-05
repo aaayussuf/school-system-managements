@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_jwt_extended import jwt_required
-from services.fee_service import (
+from ..services.fee_service import (
     get_all_fees,
     get_fee_by_id,
     create_fee,
@@ -8,8 +8,8 @@ from services.fee_service import (
     delete_fee,
     get_fee_summary
 )
-from utils.response_utils import make_response
-from utils.auth_utils import roles_required
+from ..utils.response_utils import make_response
+from ..utils.auth_utils import roles_required
 
 fees_bp = Blueprint('fees', __name__)
 

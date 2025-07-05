@@ -1,9 +1,9 @@
-from models.student import Student
-from models.user import User
-from app import db
+from backend.models.student import Student
+from backend.models.user import User
+from backend.app import db
 from datetime import datetime
 import os
-from config import Config
+from backend.config import Config
 
 def get_all_students(class_grade=None):
     query = Student.query

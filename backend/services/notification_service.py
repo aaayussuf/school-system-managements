@@ -1,5 +1,5 @@
-from models.notification import Notification
-from app import db
+from backend.models.notification import Notification
+from backend.app import db
 
 def get_user_notifications(user_id, is_read=None, notification_type=None):
     query = Notification.query.filter_by(user_id=user_id)

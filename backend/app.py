@@ -40,6 +40,10 @@ def create_app(config_name='default'):
     app.register_blueprint(timetable_bp, url_prefix='/api/timetable')
     app.register_blueprint(notifications_bp, url_prefix='/api/notifications')
     
+    @app.route('/')
+    def index():
+        return {'message': 'School Management System Backend is Live!'}
+    
     # Create tables
     with app.app_context():
         db.create_all()

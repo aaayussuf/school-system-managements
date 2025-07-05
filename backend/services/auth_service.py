@@ -1,5 +1,5 @@
-from models.user import User
-from app import db
+from backend.models.user import User
+from backend import db
 
 def authenticate_user(username, password):
     user = User.query.filter_by(username=username).first()

@@ -1,8 +1,8 @@
-from models.fee import Fee
-from models.student import Student
-from app import db
+from backend.models.fee import Fee
+from backend.models.student import Student
+from backend.app import db
 from datetime import datetime, date
-from sqlalchemy import func
+from sqlalchemy import func, case
 
 def get_all_fees(student_id=None, class_grade=None, status=None, term=None):
     query = Fee.query.join(Student)
@@ -99,7 +99,7 @@ def get_fee_summary():
         Student.class_grade,
         func.sum(Fee.amount).label('total_amount'),
         func.sum(case([(Fee.status == 'paid', Fee.amount)], else_=0)).label('paid_amount'),
-        func.sum(case([(Fee.status.in_(['unpaid', 'partial']), Fee.amount], else_=0)).label('outstanding_amount')
+        func.sum(case([(Fee.status.in_(['unpaid', 'partial']), Fee.amount)], else_=0)).label('outstanding_amount')
     ).join(Student).group_by(Student.class_grade).all()
     
     return {

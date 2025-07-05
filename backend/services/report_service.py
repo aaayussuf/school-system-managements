@@ -1,6 +1,6 @@
-from models.student import Student
-from models.fee import Fee
-from models.attendance import Attendance
+from backend.models.student import Student
+from backend.models.fee import Fee
+from backend.models.attendance import Attendance
 from app import db
 from datetime import datetime, date
 from sqlalchemy import func

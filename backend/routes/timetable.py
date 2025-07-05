@@ -1,14 +1,14 @@
 from flask import Blueprint, request
 from flask_jwt_extended import jwt_required
-from services.timetable_service import (
+from ..services.timetable_service import (
     get_timetable_entries,
     get_timetable_by_id,
     create_timetable_entry,
     update_timetable_entry,
     delete_timetable_entry
 )
-from utils.response_utils import make_response
-from utils.auth_utils import roles_required
+from ..utils.response_utils import make_response
+from ..utils.auth_utils import roles_required
 
 timetable_bp = Blueprint('timetable', __name__)
 

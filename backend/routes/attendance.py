@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_jwt_extended import jwt_required
-from services.attendance_service import (
+from ..services.attendance_service import (
     get_attendance_records,
     get_attendance_by_id,
     mark_attendance,
@@ -8,8 +8,8 @@ from services.attendance_service import (
     delete_attendance,
     get_attendance_summary
 )
-from utils.response_utils import make_response
-from utils.auth_utils import roles_required
+from ..utils.response_utils import make_response
+from ..utils.auth_utils import roles_required
 
 attendance_bp = Blueprint('attendance', __name__)
 

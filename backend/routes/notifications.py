@@ -1,12 +1,12 @@
 from flask import Blueprint, request
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from services.notification_service import (
+from ..services.notification_service import (
     get_user_notifications,
     get_notification_by_id,
     mark_notification_as_read,
     create_notification
 )
-from utils.response_utils import make_response
+from ..utils.response_utils import make_response
 
 notifications_bp = Blueprint('notifications', __name__)
 

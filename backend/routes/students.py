@@ -1,14 +1,14 @@
 from flask import Blueprint, request
 from flask_jwt_extended import jwt_required
-from services.student_service import (
+from backend.services.student_service import (
     get_all_students, 
     get_student_by_id,
     create_student,
     update_student,
     delete_student
 )
-from utils.response_utils import make_response
-from utils.auth_utils import roles_required
+from backend.utils.response_utils import make_response
+from backend.utils.auth_utils import roles_required
 
 students_bp = Blueprint('students', __name__)
 

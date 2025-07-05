@@ -1,5 +1,5 @@
-from models.timetable import Timetable
-from app import db
+from backend.models.timetable import Timetable
+from backend.app import db
 
 def get_timetable_entries(class_grade=None, teacher_id=None, day=None, term=None):
     query = Timetable.query
